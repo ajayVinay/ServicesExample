@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ServiceExample</string>
+    
+    <string name="string_startthered">Start Thread</string>
+    <string name="string_stopthered">Stop Thread</string>
+    <string name="string_startservice">Start service</string>
+    <string name="string_stopservice">stop service</string>
+    <string name="service_demo_tag">Service Demo</string>
+
+
+</resources>
