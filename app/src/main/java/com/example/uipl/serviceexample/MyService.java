@@ -3,6 +3,7 @@ package com.example.uipl.serviceexample;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -23,7 +24,10 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand: onStartCommand method called  (service started)");
         Toast.makeText(getApplicationContext(),"started service",Toast.LENGTH_SHORT).show();
+        SystemClock.sleep(30000); // 30 seconds
         return super.onStartCommand(intent, flags, startId);
+
+        //return START_STICKY;
 
        // stopSelf();
     }

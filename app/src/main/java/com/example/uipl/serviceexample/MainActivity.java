@@ -1,6 +1,7 @@
 package com.example.uipl.serviceexample;
 
 import android.Manifest;
+import android.app.IntentService;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -19,8 +20,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
-    private Button startService,stopService;
-    private Intent  serviceIntent;
+    private Button startService,stopService,intentService;
+    private Intent service , intentServices;
+
 
     private Boolean mStopLoop;
     @Override
@@ -31,11 +33,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         startService = (Button)findViewById(R.id.btnstart);
         stopService = (Button)findViewById(R.id.btnstop);
-
+        intentService = (Button)findViewById(R.id.intentService);
         startService.setOnClickListener(this);
         stopService.setOnClickListener(this);
+        intentService.setOnClickListener(this);
 
-        serviceIntent = new Intent(MainActivity.this,MyService.class);
+        service = new Intent(MainActivity.this,MyService.class);
+        intentServices = new  Intent(MainActivity.this,IntentSer.class);
     }
     @Override
     public void onClick(View view) {
@@ -44,14 +48,18 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         {
             case R.id.btnstart:
                // mStopLoop = true;
-                this.startService(serviceIntent);
+                this.startService(service);
                 Toast.makeText(getApplicationContext(),"StartService Button Clicked",Toast.LENGTH_SHORT).show();
                 break;
 
             case  R.id.btnstop:
-
-                this.stopService(serviceIntent);
+                this.stopService(service);
                 Toast.makeText(getApplicationContext(),"StopService Button Clicked",Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.intentService:
+                this.startService(intentServices);
+                Toast.makeText(this,"intent Service  button clicked",Toast.LENGTH_LONG).show();
                 break;
         }
 

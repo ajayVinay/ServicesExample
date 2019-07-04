@@ -26,7 +26,6 @@ public class ExampleJobService extends JobService {
                    if (jobCancelled) {
                     return;
                    }
-
                    try {
                        Thread.sleep(1000);
                    } catch (InterruptedException e) {
@@ -38,7 +37,7 @@ public class ExampleJobService extends JobService {
             }
         }).start();
 
-        
+
     }
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
